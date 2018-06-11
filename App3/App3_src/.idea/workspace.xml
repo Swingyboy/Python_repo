@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e64f43c5-cd86-4764-ab29-6f803ce9c7b4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website_blocker.py" beforeDir="false" afterPath="$PROJECT_DIR$/website_blocker.py" afterDir="false" />
-    </list>
+    <list default="true" id="e64f43c5-cd86-4764-ab29-6f803ce9c7b4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528145902657</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="App is ready.">
+      <created>1528534465119</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528534465119</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -145,7 +149,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="my test commit" />
     <MESSAGE value="website check added." />
-    <option name="LAST_COMMIT_MESSAGE" value="website check added." />
+    <MESSAGE value="App is ready." />
+    <option name="LAST_COMMIT_MESSAGE" value="App is ready." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/website_blocker.py">
