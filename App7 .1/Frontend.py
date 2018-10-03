@@ -1,5 +1,5 @@
 from tkinter import *
-import App7_back
+import Backend
 
 
 def get_selected_row(event):
@@ -21,32 +21,32 @@ def get_selected_row(event):
 
 def view_command():
     list1.delete(0, END)
-    for row in App7_back.view():
+    for row in Backend.view():
         list1.insert(END, row)
     return 0
 
 
 def search_command():
     list1.delete(0, END)
-    for row in App7_back.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
+    for row in Backend.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
         list1.insert(END, row)
     return 0
 
 
 def add_command():
-    App7_back.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    Backend.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
     list1.delete(0, END)
     list1.insert(END, (title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
     return 0
 
 
 def delete_command():
-    App7_back.delete(selected_tuple[0])
+    Backend.delete(selected_tuple[0])
     return 0
 
 
 def update_command():
-    App7_back.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    Backend.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
     return 0
 
 
