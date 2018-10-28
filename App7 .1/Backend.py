@@ -3,8 +3,8 @@ import sqlite3
 
 class DataBase:
 
-    def __init__(self):
-        self.conn = sqlite3.connect("books.db")
+    def __init__(self, db):
+        self.conn = sqlite3.connect(db)
         self.cur = self.conn.cursor()
         self.cur.execute("CREATE TABLE IF NOT EXISTS book (id INTEGER PRIMARY KEY, title TEXT, author TEXT, year INTEGER,"
                     " isbn INTEGER)")
@@ -19,26 +19,19 @@ class DataBase:
         rows = self.cur.fetchall()
         return rows
 
-    def search(title="", author="", year="", isbn=""):
-        conn = sqlite3.connect("books.db")
-        cur = conn.cursor()
-        cur.execute("SELECT * FROM book WHERE title=? OR author=? OR year=? OR isbn=?", (title, author, year, isbn))
-        rows = cur.fetchall()
+    def search(self, title="", author="", year="", isbn=""):
+        self.cur.execute("SELECT * FROM book WHERE title=? OR author=? OR year=? OR isbn=?", (title, author, year, isbn))
+        rows = self.cur.fetchall()
         return rows
 
-    def delete(id):
-        conn = sqlite3.connect("books.db")
-        cur = conn.cursor()
-        cur.execute("DELETE FROM book WHERE id=?", (id,))
-        conn.commit()
-        conn.close()
+    def delete(self, id):
+        self.cur.execute("DELETE FROM book WHERE id=?", (id,))
+        self.conn.commit()
 
-    def update(id, title, author, year, isbn):
-        conn = sqlite3.connect("books.db")
-        cur = conn.cursor()
-        cur.execute("UPDATE book SET title=?, author=?, year=?, isbn=? WHERE id=?",
+    def update(self, id, title, author, year, isbn):
+        self.cur.execute("UPDATE book SET title=?, author=?, year=?, isbn=? WHERE id=?",
                     (title, author, year, isbn, id))
-        conn.commit()
+        self.conn.commit()
 
     def __del__(self):
         self.conn.close()
