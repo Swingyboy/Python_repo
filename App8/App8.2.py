@@ -16,9 +16,19 @@ while True:
     delta_frame = cv2.absdiff(first_frame, gray)
     thresh_delta = cv2.threshold(delta_frame, 30, 255, cv2.THRESH_BINARY)[1]
     thresh_delta = cv2.dilate(thresh_delta, None, iterations=2)
+
+    (_,cnts,_) = cv2.findContours(thresh_delta.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    for contour in cnts:
+        if cv2.contourArea(contour) < 1000:
+            continue
+        (x, y, w, h) = cv2.boundingRect(contour)
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 196), 3)
+
     cv2.imshow("Gray", gray)
     cv2.imshow("Delta frame", delta_frame)
     cv2.imshow("Thresh", thresh_delta)
+    cv2.imshow("Real", frame)
     key = cv2.waitKey(1)
     if key == ord('q'):
         break
